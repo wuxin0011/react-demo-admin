@@ -1,15 +1,17 @@
 import {Button, Checkbox, Form, Input} from 'antd';
 import React from 'react';
-import './index.less'
+import './index.css'
 import {useNavigate} from "react-router-dom";
 
 const Login = () => {
 
     const navigate = useNavigate()
+    const labelCol = 4
+    const wrapperCol = 16
 
     const onFinish = (values) => {
         console.log('Success:', values);
-        navigate('/home')
+        navigate('/dashboard')
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -18,14 +20,15 @@ const Login = () => {
 
     return (
         <div className="login">
+
             <Form
                 className="login-form"
                 name="basic"
                 labelCol={{
-                    span: 8,
+                    span: labelCol,
                 }}
                 wrapperCol={{
-                    span: 16,
+                    span: wrapperCol,
                 }}
                 initialValues={{
                     remember: true,
@@ -34,7 +37,10 @@ const Login = () => {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
+                <h2 className="login-title">登录</h2>
+
                 <Form.Item
+                    className="login-item login-username"
                     label="用户名"
                     name="username"
                     rules={[
@@ -50,6 +56,7 @@ const Login = () => {
                 <Form.Item
                     label="密码"
                     name="password"
+                    className="login-item"
 
                     rules={[
                         {
@@ -62,26 +69,17 @@ const Login = () => {
                 </Form.Item>
 
                 <Form.Item
-                    name="remember"
-                    valuePropName="checked"
+                    className="login-item login-button"
                     wrapperCol={{
-                        offset: 8,
-                        span: 16,
+                        offset: labelCol,
+                        span: wrapperCol,
                     }}
                 >
-                    <Checkbox>记住我</Checkbox>
+                    <Button type="primary" htmlType="submit">登录</Button>
+                    <Button type="warning" htmlType="button">注册</Button>
                 </Form.Item>
 
-                <Form.Item
-                    wrapperCol={{
-                        offset: 8,
-                        span: 16,
-                    }}
-                >
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
+
             </Form>
         </div>
 

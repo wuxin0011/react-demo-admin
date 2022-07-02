@@ -1,4 +1,4 @@
-import RouteList from "./router";
+import {RouteList} from "./router";
 import {Outlet} from "react-router-dom";
 
 function App() {

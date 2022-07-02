@@ -2,3 +2,33 @@
     margin: 0;
     padding: 0;
 }
+
+
+.header{
+    background-color: rgb(255, 204, 0) !important;
+    display: inline!important;
+}
+
+.header-dropdown,.header-logo,.header-search{
+    display: inline !important;
+}
+
+.header-dropdown{
+    float: right;
+}
+
+.header-logo {
+    width: 60px !important;
+    height: 60px !important;
+    animation: loginAnimation linear infinite 5s !important;
+}
+
+@keyframes loginAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
