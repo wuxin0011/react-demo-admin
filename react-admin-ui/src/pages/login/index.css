@@ -36,3 +36,12 @@
     width: 100px;
     margin: 2px;
 }
+
+.login-form-btn{
+    width: 350px !important;
+}
+
+.login-check-forget{
+    /*background-color: orange;*/
+}
+

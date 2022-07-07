@@ -8,10 +8,18 @@ import MyBread from "./breadcrumb";
 
 const {Header, Content} = Layout;
 
+
+const operation = ()=>{
+    alert('hello')
+}
+
+
+
 const menu = (
     <Menu
         selectable
         defaultSelectedKeys={['1']}
+        onClick={operation}
         items={[
             {
                 key: '1',
@@ -25,23 +33,23 @@ const menu = (
     />
 );
 
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-    const key = String(index + 1);
-    return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-        children: new Array(4).fill(null).map((_, j) => {
-            const subKey = index * 4 + j + 1;
-            return {
-                key: subKey,
-                label: `option${subKey}`,
-            };
-        }),
-    };
-});
+// const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
+//     const key = String(index + 1);
+//     return {
+//         key: `sub${key}`,
+//         icon: React.createElement(icon),
+//         label: `subnav ${key}`,
+//         children: new Array(4).fill(null).map((_, j) => {
+//             const subKey = index * 4 + j + 1;
+//             return {
+//                 key: subKey,
+//                 label: `option${subKey}`,
+//             };
+//         }),
+//     };
+// });
 
-const onSearch = (value) => console.log(value);
+// const onSearch = (value) => console.log(value);
 
 const MyLayout = () => (
     <Layout>

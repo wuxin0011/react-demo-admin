@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import MySvg from "@/components/svg";
-import NotFoundSVG from '@/assert/img/svg/NotFound.svg'
+import MySvg from "../../components/svg";
+import NotFoundSVG from '../../assert/img/svg/NotFound.svg'
 export const NotFound = () => {
     return (
         <div className="error-page">

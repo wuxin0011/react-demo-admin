@@ -23,7 +23,7 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, i
 
 const MySider = () => {
     return (
-        <Layout.Sider width={200} className="site-layout-background" trigger={null} style={{backgroundColor: 'orange'}}>
+        <Layout.Sider width={200} className="site-layout-background" trigger={null} >
             <Menu
                 mode="inline"
                 defaultSelectedKeys={['1']}

@@ -1,9 +1,17 @@
 import {Button, Checkbox, Form, Input} from 'antd';
 import React from 'react';
-import './index.css'
+import '../index.css'
 import {useNavigate} from "react-router-dom";
 
-const Login = () => {
+
+
+const Forget = () => {
+
+
+
+    const handleValidPhone = (e) => {
+        console.log('a', e.target.value)
+    }
 
     const navigate = useNavigate()
     const labelCol = 4
@@ -37,50 +45,45 @@ const Login = () => {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
-                <h2 className="login-title">登录</h2>
+                <h2 className="login-title">忘记密码</h2>
 
                 <Form.Item
                     className="login-item login-username"
-                    label="验证"
-                    name="username"
+                    label="手机号"
+                    name="phone"
+
                     rules={[
                         {
                             required: true,
-                            message: '输入手机号或者用户名...',
+                            message: '请输入手机号!',
                         },
                     ]}
                 >
-                    <Input/>
+                    <Input onChange={e => handleValidPhone(e)}/>
                 </Form.Item>
 
                 <Form.Item
-                    label="密码"
-                    name="password"
-                    className="login-item"
+                    label="验证码"
+                    name="code"
+                    className="login-item login-form-code"
+
                     rules={[
                         {
                             required: true,
-                            message: '请输入密码!',
+                            message: '请输入验证码!',
                         },
                     ]}
                 >
-                    <Input.Password/>
-
-                </Form.Item>
-                <Form.Item className="login-item login-check-forget"
-                           wrapperCol={{
-                    offset: labelCol,
-                    span: wrapperCol,
-                }}>
-                    <Checkbox name="remember" defaultChecked={true}>记住我</Checkbox>
-                    <a className="login-form-forgot" href="/forget">忘记密码</a>
+                    <Input.Password
+                        style={{width: '200px', minWidth: '200px', maxWidth: '250px', marginRight: '30px'}}/>
+                    <Button disabled={true}>获取验证码</Button>
                 </Form.Item>
 
                 <Form.Item className="login-item login-button"
-                    wrapperCol={{
-                        offset: labelCol,
-                        span: wrapperCol,
-                    }}
+                           wrapperCol={{
+                               offset: labelCol,
+                               span: wrapperCol,
+                           }}
                 >
                     <Button type="primary" htmlType="submit" className="login-form-btn">登录</Button>
                 </Form.Item>
@@ -90,7 +93,7 @@ const Login = () => {
                                offset: labelCol,
                                span: wrapperCol,
                            }}>
-                    <a href="/register">注册</a>
+                    <a href="/login">登录</a>
                 </Form.Item>
 
             </Form>
@@ -99,4 +102,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Forget;

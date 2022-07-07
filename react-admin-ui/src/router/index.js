@@ -3,6 +3,8 @@ import Login from '../pages/login'
 import {NotAuth, NotFound, NotLogin} from "../pages/error";
 import MyLayout from "../layout";
 import Dashboard from "../pages/dashboard";
+import Forget from "../pages/login/forget";
+import Register from "../pages/login/register";
 
 export const routerList = [
     {
@@ -14,7 +16,25 @@ export const routerList = [
             icon: 'icon-login'
         }
     },
+    {
+        path: '/forget',
+        element: <Forget/>,
+        meta: {
+            title: '忘记密码',
+            hidden: false,
+            icon: 'icon-login'
+        }
+    },
 
+    {
+        path: '/register',
+        element: <Register/>,
+        meta: {
+            title: '注册',
+            hidden: false,
+            icon: 'icon-login'
+        }
+    },
     {
         path: '/not-login',
         element: <NotLogin/>
