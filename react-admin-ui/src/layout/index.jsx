@@ -1,67 +1,78 @@
 import {LaptopOutlined, DownOutlined, NotificationOutlined, UserOutlined} from '@ant-design/icons';
-import {Breadcrumb, Layout, Menu, Dropdown, Space, Typography,Input} from 'antd';
+import {ExclamationCircleOutlined} from '@ant-design/icons'
+import {Breadcrumb, Layout, Menu, Dropdown, Space, Typography, Input, Button, Modal} from 'antd';
 import React from 'react';
 import Logo from '../logo.svg'
-import {Outlet} from "react-router-dom";
+import AvatarHuaji from '../assert/img/avatar/avatar-huaji.jpg'
+import {Outlet, useNavigate} from "react-router-dom";
 import MySider from './sider/index'
 import MyBread from "./breadcrumb";
+import Avatar from "antd/es/avatar/avatar";
+
+const {confirm} = Modal
 
 const {Header, Content} = Layout;
 
 
-const operation = ()=>{
+const operation = () => {
     alert('hello')
 }
 
+
+const showPromiseConfirm = () => {
+
+    confirm({
+        title: '确认退出?',
+        icon: <ExclamationCircleOutlined/>,
+        content: '退出后将清空登录信息！',
+        cancelText: '取消',
+        okText: '确认',
+
+        onOk() {
+            window.location.href = '/login'
+        },
+
+        onCancel() {
+        },
+    });
+};
 
 
 const menu = (
     <Menu
         selectable
         defaultSelectedKeys={['1']}
-        onClick={operation}
         items={[
             {
                 key: '1',
-                label: '个人中心',
+                label: (
+                    <a href="/user/setting">
+                        个人中心
+                    </a>
+                ),
             },
             {
                 key: '2',
-                label: '退出',
+                label: (
+                    <a onClick={showPromiseConfirm}>
+                        退出
+                    </a>
+                ),
             },
         ]}
     />
 );
 
-// const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-//     const key = String(index + 1);
-//     return {
-//         key: `sub${key}`,
-//         icon: React.createElement(icon),
-//         label: `subnav ${key}`,
-//         children: new Array(4).fill(null).map((_, j) => {
-//             const subKey = index * 4 + j + 1;
-//             return {
-//                 key: subKey,
-//                 label: `option${subKey}`,
-//             };
-//         }),
-//     };
-// });
-
-// const onSearch = (value) => console.log(value);
 
 const MyLayout = () => (
     <Layout>
         <Header className="header">
-            {/*<div className="logo"/>*/}
             <img className="header-logo" src={Logo} alt=""/>
-            {/*<Input.Search  className="header-search" placeholder="input search text" onSearch={onSearch} enterButton />*/}
             <div className="header-dropdown">
                 <Dropdown overlay={menu}>
                     <Typography.Link>
                         <Space>
-                            操作
+                            <Avatar src={AvatarHuaji} alt="" title="默认头像内容"/>
                             <DownOutlined/>
                         </Space>
                     </Typography.Link>
@@ -70,10 +81,10 @@ const MyLayout = () => (
         </Header>
         <Layout>
             <MySider/>
-            <Layout style={{padding: '0 24px 24px', backgroundColor: 'teal'}}>
+            <Layout style={{padding: '0 24px 24px'}}>
                 <MyBread/>
                 <Content className="site-layout-background"
-                         style={{padding: 24, margin: 0, minHeight: 280, backgroundColor: 'skyblue'}}>{/*内容渲染区域*/}
+                         style={{padding: 24, margin: 0, minHeight: 280, }}>{/*内容渲染区域*/}
                     <Outlet/>
                 </Content>
             </Layout>

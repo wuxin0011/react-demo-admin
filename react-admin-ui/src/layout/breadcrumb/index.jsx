@@ -14,18 +14,15 @@ const itemList = [
     }
 ]
 
-const getItemList = () => {
-    return itemList.map((item, index) => {
-        return <Breadcrumb.Item key={`Breadcrumb.Item${index}`}>{item.name}</Breadcrumb.Item>
-    })
-}
 
 
 const MyBread = () => {
     return (
-        <Breadcrumb style={{margin: '16px 0', backgroundColor: 'orange'}}>
+        <Breadcrumb style={{margin: '16px 0'}}>
             {
-                getItemList()
+                itemList.map((item, index) => {
+                    return <Breadcrumb.Item key={`Breadcrumb.Item${index}`}>{item.name}</Breadcrumb.Item>
+                })
             }
         </Breadcrumb>
     )

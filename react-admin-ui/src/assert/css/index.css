@@ -5,7 +5,7 @@
 
 
 .header{
-    background-color: rgb(255, 204, 0) !important;
+    background-color: rgb(29, 136, 250) !important;
     display: inline!important;
 }
 
@@ -34,5 +34,5 @@
 }
 
 .site-layout-background{
-    background-color: teal;
+    /*background-color: teal;*/
 }

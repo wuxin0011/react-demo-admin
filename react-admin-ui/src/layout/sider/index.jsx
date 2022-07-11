@@ -3,27 +3,36 @@ import {Layout, Menu} from 'antd';
 import React from 'react';
 import {routerList} from "../../router";
 
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-    const key = String(index + 1);
-    return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-        children: new Array(4).fill(null).map((_, j) => {
-            const subKey = index * 4 + j + 1;
-            return {
-                key: subKey,
-                label: `option${subKey}`,
-            };
-        }),
-    };
-});
+const items2 = [
+    {
+        key: `router-item-1`,
+        icon: <UserOutlined/>,
+        label: `用户管理`,
+        children:
+            [
+                {
+                    key: 'router-item-1-1',
+                    label: `权限管理`,
+                    icon: <UserOutlined/>,
+                },
+                {
+                    key: 'router-item-1-2',
+                    label: `用户操作`,
+                    icon: <UserOutlined/>,
+                },
+                {
+                    key: 'router-item-1-3',
+                    label: `操作...`,
+                    icon: <UserOutlined/>,
+                }
+            ]
 
-// console.log('sessionStorage getitem routerList',routerList)
+    }
+]
 
 const MySider = () => {
     return (
-        <Layout.Sider width={200} className="site-layout-background" trigger={null} >
+        <Layout.Sider width={200} className="site-layout-background" trigger={null}>
             <Menu
                 mode="inline"
                 defaultSelectedKeys={['1']}
